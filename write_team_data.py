@@ -17,7 +17,7 @@ teams = ['NE','NYJ','MIA','BUF','PIT','BAL','CLE','CIN','HOU','IND',
 years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
 
 for year in years:
-    with open('output/team_stats_'+str(year)+'.csv', 'wb') as csvfile:
+    with open('output/team/team_stats_'+str(year)+'.csv', 'wb') as csvfile:
         c = csv.writer(csvfile)
         c.writerow(['Team','Total Pass Yards','Total Pass TDs','Total Pass Att',
                     'Total Rush Yards','Total Rush TDs', 'Total Rush Att'])

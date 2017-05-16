@@ -23,7 +23,7 @@ q.player(position = position)
 
 with open('output/top'+str(limit)+'_'+str(position)+'_'+str(year)+'.csv', 'wb') as csvfile:
     c = csv.writer(csvfile)
-    c.writerow(['Player', 'Rec Yds', 'Rec Tar', 'Rec Tds', 'Rec YAC', 
+    c.writerow(['Player', 'Rec', 'Rec Yds', 'Rec Tar', 'Rec Tds', 'Rec YAC', 
                 'Rush Yds', 'Rush Att',
                 'Rush Tds', 'Pass Yds', 'Pass Tds', 'Pass Att', 'Fumbles', 'Interceptions',
                 'Team Pass Yds', 'Team Pass Tds', 'Team Pass Att', 'Comp %', "Team Rush Yds",
