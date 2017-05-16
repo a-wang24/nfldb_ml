@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat May 13 22:04:56 2017
+Created on Sat May 13 22:13:15 2017
 
 @author: Alan
-Write RB data to .csv
+Write TE stats to .csv
 """
+
 import nfldb
 import csv
 import individual_stats as indst
+import os
 
 years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
-position = 'RB'
-limit = 120
-sort_by = ['rushing_yds', 'rushing_tds', 'rushing_att']
+position = 'TE'
+limit = 60
+sort_by = ['receiving_yds', 'receiving_tar', 'receiving_tds', 'receiving_yac_yds']
 ppr_rules = [0, 0.25, 0.5, 1]
 
 for year in years:
@@ -21,9 +23,12 @@ for year in years:
             data = []
             db = nfldb.connect()
             q = nfldb.Query(db)
-            with open('output/rb/top'+str(limit)+'_'+str(position)+'_'+str(year)+
-                      '_'+str(ppr)+'ppr_by_'+
-                      str(sort)+'.csv', 'wb') as csvfile:
+            basepath = os.path.dirname(__file__)
+            filepath = os.path.abspath(os.path.join(basepath, "..", "output/te/top"+
+                                        str(limit)+'_'+str(position)+'_'+str(year)+
+                                        '_'+str(ppr)+'ppr_by'+
+                                        str(sort)+'.csv'))
+            with open(filepath, 'wb') as csvfile:
                 c = csv.writer(csvfile)
                 c.writerow(['Player', 'Rec Yds', 'Rec Tar', 'Rec Tds', 'Rec YAC', 
                             'Rush Yds', 'Rush Att', 'Rush Tds', 'Pass Yds', 'Pass Tds',
